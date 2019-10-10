@@ -111,7 +111,7 @@ public class MainWindow extends BorderPane implements EventHandler<ActionEvent> 
         VBox.setVgrow(taOutput, Priority.ALWAYS);
         vboxTaOutput.getChildren().addAll(new Label(MESSAGES.getString("border1")), taOutput);
         //======================================================================
-        // Formuojamas mygtukų tinklelis (mėlynas). Naudojama klasė PanelsFX.
+        // Formuojamas mygtukų tinklelis (mėlynas). Naudojama klasė Panels.
         //======================================================================
         paneButtons = new Panels(
                 new String[]{
@@ -125,7 +125,7 @@ public class MainWindow extends BorderPane implements EventHandler<ActionEvent> 
                 2, 4);
         disableButtons(true);
         //======================================================================
-        // Formuojama pirmoji parametrų lentelė (žalia). Naudojama klasė PanelsFX.
+        // Formuojama pirmoji parametrų lentelė (žalia). Naudojama klasė Panels.
         //======================================================================
         paneParam1 = new Panels(
                 new String[]{
@@ -187,21 +187,29 @@ public class MainWindow extends BorderPane implements EventHandler<ActionEvent> 
             public void handle(ActionEvent ae) {
                 Region region = (Region) taOutput.lookup(".content");
                 region.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
-                Object source = ae.getSource();
 
-                if (source.equals(mainWindowMenu.getMenus().get(0).getItems().get(0))) {
-                    fileChooseMenu();
-                } else if (source.equals(mainWindowMenu.getMenus().get(0).getItems().get(1))) {
-                    KsGui.ounerr(taOutput, MESSAGES.getString("notImplemented"));
-                } else if (source.equals(mainWindowMenu.getMenus().get(0).getItems().get(3))) {
-                    System.exit(0);
-                } else if (source.equals(mainWindowMenu.getMenus().get(1).getItems().get(0))) {
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.initStyle(StageStyle.UTILITY);
-                    alert.setTitle(MESSAGES.getString("menuItem21"));
-                    alert.setHeaderText(MESSAGES.getString("author"));
-                    alert.showAndWait();
+                try {
+                    Object source = ae.getSource();
+                    if (source.equals(mainWindowMenu.getMenus().get(0).getItems().get(0))) {
+                        fileChooseMenu();
+                    } else if (source.equals(mainWindowMenu.getMenus().get(0).getItems().get(1))) {
+                        KsGui.ounerr(taOutput, MESSAGES.getString("notImplemented"));
+                    } else if (source.equals(mainWindowMenu.getMenus().get(0).getItems().get(3))) {
+                        System.exit(0);
+                    } else if (source.equals(mainWindowMenu.getMenus().get(1).getItems().get(0))) {
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.initStyle(StageStyle.UTILITY);
+                        alert.setTitle(MESSAGES.getString("menuItem21"));
+                        alert.setHeaderText(MESSAGES.getString("author"));
+                        alert.showAndWait();
+                    }
+                } catch (ValidationException e) {
+                    KsGui.ounerr(taOutput, e.getMessage());
+                } catch (Exception e) {
+                    KsGui.ounerr(taOutput, MESSAGES.getString("systemError"));
+                    e.printStackTrace(System.out);
                 }
+                KsGui.setFormatStartOfLine(false);
             }
         };
 
@@ -372,8 +380,8 @@ public class MainWindow extends BorderPane implements EventHandler<ActionEvent> 
         Semaphore semaphore = new Semaphore(-1);
         SimpleBenchmark simpleBenchmark = new SimpleBenchmark(resultsLogger, semaphore);
 
-        // Si gija paima rezultatus is greitaveikos tyrimo gijos ir isveda 
-        // juos i taOutput. Gija baigia darbą kai gaunama FINISH_COMMAND     
+        // Ši gija paima rezultatus iš greitaveikos tyrimo gijos ir išveda
+        // juos į taOutput. Gija baigia darbą kai gaunama FINISH_COMMAND
         new Thread(() -> {
             try {
                 String result;
@@ -391,7 +399,7 @@ public class MainWindow extends BorderPane implements EventHandler<ActionEvent> 
             mainWindowMenu.setDisable(false);
         }, "Greitaveikos_rezultatu_gija").start();
 
-        //Sioje gijoje atliekamas greitaveikos tyrimas
+        //Šioje gijoje atliekamas greitaveikos tyrimas
         new Thread(simpleBenchmark::startBenchmark, "Greitaveikos_tyrimo_gija").start();
     }
 

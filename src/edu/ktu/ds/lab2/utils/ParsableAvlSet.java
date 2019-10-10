@@ -13,7 +13,7 @@ import java.util.function.Function;
 public class ParsableAvlSet<E extends Parsable<E>> extends AvlSet<E>
         implements ParsableSortedSet<E> {
 
-    private Function<String, E> createFunction; // funkcija bazinio objekto kūrimui
+    private final Function<String, E> createFunction; // funkcija bazinio objekto kūrimui
 
     /**
      * Konstruktorius su funkcija bazinio objekto kūrimui

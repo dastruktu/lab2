@@ -5,12 +5,10 @@ import java.util.Comparator;
 /**
  * Rikiuojamos objektų kolekcijos - aibės realizacija AVL-medžiu.
  *
- * @užduotis Peržiūrėkite ir išsiaiškinkite pateiktus metodus.
- *
  * @param <E> Aibės elemento tipas. Turi tenkinti interfeisą Comparable<T>, arba
- * per klasės konstruktorių turi būti paduodamas Comparator<T> klasės objektas.
- *
+ *            per klasės konstruktorių turi būti paduodamas Comparator<T> klasės objektas.
  * @author darius.matulis@ktu.lt
+ * @užduotis Peržiūrėkite ir išsiaiškinkite pateiktus metodus.
  */
 public class AvlSet<E extends Comparable<E>> extends BstSet<E>
         implements SortedSet<E> {
@@ -81,17 +79,15 @@ public class AvlSet<E extends Comparable<E>> extends BstSet<E>
         throw new UnsupportedOperationException("Studentams reikia realizuoti removeRecursive(E element, AVLNode<E> n)");
     }
 
-//==============================================================================
-// Papildomi privatūs metodai, naudojami operacijų su aibe realizacijai
-// AVL-medžiu;
-//==============================================================================
-//==============================================================================
-//         n2
-//        /                n1
-//       n1      ==>      /  \
-//      /                n3  n2
-//     n3
-//==============================================================================
+    // Papildomi privatūs metodai, naudojami operacijų su aibe realizacijai
+    // AVL-medžiu;
+
+    //           n2
+    //          /                n1
+    //         n1      ==>      /  \
+    //        /                n3  n2
+    //       n3
+
     private AVLNode<E> rightRotation(AVLNode<E> n2) {
         AVLNode<E> n1 = n2.getLeft();
         n2.setLeft(n1.getRight());
@@ -110,13 +106,12 @@ public class AvlSet<E extends Comparable<E>> extends BstSet<E>
         return n2;
     }
 
-//==============================================================================
-//        n3               n3
-//       /                /                n2
-//      n1      ==>      n2      ==>      /  \
-//       \              /                n1  n3
-//        n2           n1
-//==============================================================================     
+    //            n3               n3
+    //           /                /                n2
+    //          n1      ==>      n2      ==>      /  \
+    //           \              /                n1  n3
+    //            n2           n1
+    //
     private AVLNode<E> doubleRightRotation(AVLNode<E> n3) {
         n3.left = leftRotation(n3.getLeft());
         return rightRotation(n3);
@@ -146,7 +141,7 @@ public class AvlSet<E extends Comparable<E>> extends BstSet<E>
         }
 
         protected void setLeft(AVLNode<N> left) {
-            this.left = (BstNode<N>) left;
+            this.left = left;
         }
 
         protected AVLNode<N> getLeft() {
@@ -154,7 +149,7 @@ public class AvlSet<E extends Comparable<E>> extends BstSet<E>
         }
 
         protected void setRight(AVLNode<N> right) {
-            this.right = (BstNode<N>) right;
+            this.right = right;
         }
 
         protected AVLNode<N> getRight() {

@@ -386,7 +386,6 @@ public class BstSet<E extends Comparable<E>> implements SortedSet<E>, Cloneable 
     @Override
     public Iterator<E> descendingIterator() {
         return new IteratorBst(false);
-
     }
 
     /**
@@ -420,7 +419,7 @@ public class BstSet<E extends Comparable<E>> implements SortedSet<E>, Cloneable 
                 BstNode<E> n = stack.pop();
                 // Atsimenama tėvo viršunė. Reikia remove() metodui
                 parent = (!stack.empty()) ? stack.peek() : root;
-                BstNode node = (ascending) ? n.right : n.left;
+                BstNode<E> node = (ascending) ? n.right : n.left;
                 // Dešiniajame n pomedyje ieškoma minimalaus elemento,
                 // o visi paieškos kelyje esantys elementai talpinami į steką
                 toStack(node);

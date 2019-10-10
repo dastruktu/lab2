@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.Locale;
 
 /*
- * Aibės testavimas be Swing'o
+ * Aibės testavimas be Gui
  *
  */
 public class ManualTest {

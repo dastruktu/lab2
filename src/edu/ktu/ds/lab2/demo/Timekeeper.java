@@ -27,10 +27,19 @@ public class Timekeeper {
     private final BlockingQueue<String> resultsLogger;
     private final Semaphore semaphore;
 
+    /**
+     * For console benchmark
+     */
     public Timekeeper(int[] kiekiai) {
         this(kiekiai, null, null);
     }
 
+    /**
+     * For Gui benchmark
+     *
+     * @param resultsLogger
+     * @param semaphore
+     */
     public Timekeeper(int[] kiekiai, BlockingQueue<String> resultsLogger, Semaphore semaphore) {
         this.tyrimoImtis = kiekiai;
         this.resultsLogger = resultsLogger;
