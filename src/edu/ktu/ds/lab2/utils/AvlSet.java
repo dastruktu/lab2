@@ -5,8 +5,10 @@ import java.util.Comparator;
 /**
  * Rikiuojamos objektų kolekcijos - aibės realizacija AVL-medžiu.
  *
- * @param <E> Aibės elemento tipas. Turi tenkinti interfeisą Comparable<T>, arba
- *            per klasės konstruktorių turi būti paduodamas Comparator<T> klasės objektas.
+ * @param <E> Aibės elemento tipas. Turi tenkinti interfeisą Comparable<E>, arba
+ *            per klasės konstruktorių turi būti paduodamas Comparator<E> 
+ *            interfeisą tenkinantis objektas.
+ * 
  * @author darius.matulis@ktu.lt
  * @užduotis Peržiūrėkite ir išsiaiškinkite pateiktus metodus.
  */

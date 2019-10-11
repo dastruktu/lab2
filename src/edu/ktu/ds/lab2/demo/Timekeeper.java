@@ -29,6 +29,7 @@ public class Timekeeper {
 
     /**
      * For console benchmark
+     * @param kiekiai
      */
     public Timekeeper(int[] kiekiai) {
         this(kiekiai, null, null);
@@ -37,6 +38,7 @@ public class Timekeeper {
     /**
      * For Gui benchmark
      *
+     * @param kiekiai
      * @param resultsLogger
      * @param semaphore
      */

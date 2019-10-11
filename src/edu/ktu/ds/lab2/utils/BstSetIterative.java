@@ -30,7 +30,7 @@ public class BstSetIterative<E extends Comparable<E>> extends BstSet<E> implemen
         }
 
         if (root == null) {
-            root = new BstNode<E>(element);
+            root = new BstNode<>(element);
         } else {
             BstNode<E> current = root;
             BstNode<E> parent = null;
@@ -48,9 +48,9 @@ public class BstSetIterative<E extends Comparable<E>> extends BstSet<E> implemen
 
             int cmp = c.compare(element, parent.element);
             if (cmp < 0) {
-                parent.left = new BstNode<E>(element);
+                parent.left = new BstNode<>(element);
             } else if (cmp > 0) {
-                parent.right = new BstNode<E>(element);
+                parent.right = new BstNode<>(element);
             }
         }
         size++;

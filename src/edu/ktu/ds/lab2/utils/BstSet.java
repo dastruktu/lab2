@@ -8,9 +8,10 @@ import java.util.Stack;
  * Rikiuojamos objektų kolekcijos - aibės realizacija dvejetainiu paieškos
  * medžiu.
  *
- * @param <E> Aibės elemento tipas. Turi tenkinti interfeisą Comparable<T>, arba
- *            per klasės konstruktorių turi būti paduodamas Comparator<T> interfeisą
+ * @param <E> Aibės elemento tipas. Turi tenkinti interfeisą Comparable<E>, arba
+ *            per klasės konstruktorių turi būti paduodamas Comparator<E> interfeisą
  *            tenkinantis objektas.
+ * 
  * @author darius.matulis@ktu.lt
  * @užduotis Peržiūrėkite ir išsiaiškinkite pateiktus metodus.
  */
@@ -24,14 +25,14 @@ public class BstSet<E extends Comparable<E>> implements SortedSet<E>, Cloneable 
     protected Comparator<? super E> c = null;
 
     /**
-     * Sukuriamas aibės objektas DP-medžio raktams naudojant Comparable<T>
+     * Sukuriamas aibės objektas DP-medžio raktams naudojant Comparable<E>
      */
     public BstSet() {
         this.c = Comparator.naturalOrder();
     }
 
     /**
-     * Sukuriamas aibės objektas DP-medžio raktams naudojant Comparator<T>
+     * Sukuriamas aibės objektas DP-medžio raktams naudojant Comparator<E>
      *
      * @param c Komparatorius
      */
@@ -276,6 +277,7 @@ public class BstSet<E extends Comparable<E>> implements SortedSet<E>, Cloneable 
      *
      * @author E. Karčiauskas
      */
+    @Override
     public String toVisualizedString(String dataCodeDelimiter) {
         horizontal = term[0] + term[0];
         return root == null ? ">" + horizontal
