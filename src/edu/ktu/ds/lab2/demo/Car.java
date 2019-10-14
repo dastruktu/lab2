@@ -162,7 +162,7 @@ public final class Car implements Parsable<Car> {
         return 0;
     };
 
-    // Automobilis klases objektų gamintojas (builder'is)
+    // Car klases objektų gamintojas (builder'is)
     public static class Builder {
 
         private final static Random RANDOM = new Random(1949);  // Atsitiktinių generatorius
