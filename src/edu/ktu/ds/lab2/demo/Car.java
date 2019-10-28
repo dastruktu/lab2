@@ -61,7 +61,7 @@ public final class Car implements Parsable<Car> {
         return new Car(dataString);
     }
 
-    private String validate() {
+    private void validate() {
         String errorType = "";
         if (year < minYear || year > currentYear) {
             errorType = "Netinkami gamybos metai, turi būti ["
@@ -71,7 +71,10 @@ public final class Car implements Parsable<Car> {
             errorType += " Kaina už leistinų ribų [" + minPrice
                     + ":" + maxPrice + "]";
         }
-        return errorType;
+        
+        if (!errorType.isEmpty()) {
+            Ks.ern("Automobilis yra blogai sugeneruotas: " + errorType);
+        }
     }
 
     @Override
@@ -167,12 +170,12 @@ public final class Car implements Parsable<Car> {
 
         private final static Random RANDOM = new Random(1949);  // Atsitiktinių generatorius
         private final static String[][] MODELS = { // galimų automobilių markių ir jų modelių masyvas
-                {"Mazda", "121", "323", "626", "MX6"},
-                {"Ford", "Fiesta", "Escort", "Focus", "Sierra", "Mondeo"},
-                {"Saab", "92", "96"},
-                {"Honda", "Accord", "Civic", "Jazz"},
-                {"Renault", "Laguna", "Megane", "Twingo", "Scenic"},
-                {"Peugeot", "206", "207", "307"}
+            {"Mazda", "121", "323", "626", "MX6"},
+            {"Ford", "Fiesta", "Escort", "Focus", "Sierra", "Mondeo"},
+            {"Saab", "92", "96"},
+            {"Honda", "Accord", "Civic", "Jazz"},
+            {"Renault", "Laguna", "Megane", "Twingo", "Scenic"},
+            {"Peugeot", "206", "207", "307"}
         };
 
         private String make = "";
