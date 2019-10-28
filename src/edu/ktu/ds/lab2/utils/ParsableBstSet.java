@@ -64,9 +64,9 @@ public class ParsableBstSet<E extends Parsable<E>> extends BstSet<E>
                     .filter(line -> !line.isEmpty())
                     .forEach(this::add);
         } catch (FileNotFoundException e) {
-            Ks.ern("Tinkamas duomenų failas " + filePath + " nerastas");
+            Ks.ern("Tinkamas duomenų failas nerastas: " + e.getLocalizedMessage());
         } catch (IOException e) {
-            Ks.ern("Failo " + filePath + " skaitymo klaida");
+            Ks.ern("Failo skaitymo klaida: " + e.getLocalizedMessage());
         }
     }
 

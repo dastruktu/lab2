@@ -468,7 +468,7 @@ public class MainWindow extends BorderPane implements EventHandler<ActionEvent> 
     public static void createAndShowGui(Stage stage) {
         Locale.setDefault(Locale.US); // Suvienodiname skaičių formatus
         MainWindow window = new MainWindow(stage);
-        stage.setScene(new Scene(window, 1100, 650));
+        stage.setScene(new Scene(window, 1100, 700));
         stage.setTitle(MESSAGES.getString("title"));
         stage.getIcons().add(new Image("file:" + MESSAGES.getString("icon")));
         stage.show();
