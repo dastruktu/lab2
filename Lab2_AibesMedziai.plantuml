@@ -1,6 +1,6 @@
 @startuml
 
-title __LAB2_AIBESMEDZIAI's Class Diagram__\n
+title __Lab2_AibesMedziai klasių diagrama__\n
 
   namespace edu.ktu.ds.lab2.demo {
     class edu.ktu.ds.lab2.demo.Car {
