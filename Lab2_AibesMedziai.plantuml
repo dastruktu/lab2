@@ -1,0 +1,161 @@
+@startuml
+
+title __Lab2_AibesMedziai klasių diagrama__\n
+
+  namespace edu.ktu.ds.lab2.demo {
+    class edu.ktu.ds.lab2.demo.Car {
+    }
+  }
+  
+
+  namespace edu.ktu.ds.lab2.demo {
+    class edu.ktu.ds.lab2.demo.CarMarket {
+    }
+  }
+  
+
+  namespace edu.ktu.ds.lab2.demo {
+    class edu.ktu.ds.lab2.demo.CarsGenerator {
+    }
+  }
+  
+
+  namespace edu.ktu.ds.lab2.demo {
+    class edu.ktu.ds.lab2.demo.DemoExecution {
+    }
+  }
+  
+
+  namespace edu.ktu.ds.lab2.demo {
+    class edu.ktu.ds.lab2.demo.ManualTest {
+    }
+  }
+  
+
+  namespace edu.ktu.ds.lab2.demo {
+    class edu.ktu.ds.lab2.demo.SimpleBenchmark {
+    }
+  }
+  
+
+  namespace edu.ktu.ds.lab2.demo {
+    class edu.ktu.ds.lab2.demo.Timekeeper {
+    }
+  }
+  
+
+  namespace edu.ktu.ds.lab2.gui {
+    class edu.ktu.ds.lab2.gui.KsGui {
+    }
+  }
+  
+
+  namespace edu.ktu.ds.lab2.gui {
+    class edu.ktu.ds.lab2.gui.MainWindow {
+    }
+  }
+  
+
+  namespace edu.ktu.ds.lab2.gui {
+    abstract class edu.ktu.ds.lab2.gui.MainWindowMenu {
+    }
+  }
+  
+
+  namespace edu.ktu.ds.lab2.gui {
+    class edu.ktu.ds.lab2.gui.Panels {
+    }
+  }
+  
+
+  namespace edu.ktu.ds.lab2.gui {
+    class edu.ktu.ds.lab2.gui.ValidationException {
+    }
+  }
+  
+
+  namespace edu.ktu.ds.lab2.utils {
+    class edu.ktu.ds.lab2.utils.AvlSet {
+    }
+  }
+  
+
+  namespace edu.ktu.ds.lab2.utils {
+    class edu.ktu.ds.lab2.utils.BstSet {
+    }
+  }
+  
+
+  namespace edu.ktu.ds.lab2.utils {
+    class edu.ktu.ds.lab2.utils.BstSetIterative {
+    }
+  }
+  
+
+  namespace edu.ktu.ds.lab2.utils {
+    class edu.ktu.ds.lab2.utils.Ks {
+    }
+  }
+  
+
+  namespace edu.ktu.ds.lab2.utils {
+    interface edu.ktu.ds.lab2.utils.Parsable {
+    }
+  }
+  
+
+  namespace edu.ktu.ds.lab2.utils {
+    class edu.ktu.ds.lab2.utils.ParsableAvlSet {
+    }
+  }
+  
+
+  namespace edu.ktu.ds.lab2.utils {
+    class edu.ktu.ds.lab2.utils.ParsableBstSet {
+    }
+  }
+  
+
+  namespace edu.ktu.ds.lab2.utils {
+    interface edu.ktu.ds.lab2.utils.ParsableSortedSet {
+    }
+  }
+  
+
+  namespace edu.ktu.ds.lab2.utils {
+    interface edu.ktu.ds.lab2.utils.Set {
+    }
+  }
+  
+
+  namespace edu.ktu.ds.lab2.utils {
+    interface edu.ktu.ds.lab2.utils.SortedSet {
+    }
+  }
+  
+
+  edu.ktu.ds.lab2.demo.Car .up.|> edu.ktu.ds.lab2.utils.Parsable
+  edu.ktu.ds.lab2.demo.DemoExecution -up-|> javafx.application.Application
+  edu.ktu.ds.lab2.demo.SimpleBenchmark o-- edu.ktu.ds.lab2.demo.Timekeeper : timeKeeper
+  edu.ktu.ds.lab2.gui.MainWindow .up.|> javafx.event.EventHandler
+  edu.ktu.ds.lab2.gui.MainWindow -up-|> javafx.scene.layout.BorderPane
+  edu.ktu.ds.lab2.gui.MainWindow o-- edu.ktu.ds.lab2.demo.CarsGenerator : carsGenerator
+  edu.ktu.ds.lab2.gui.MainWindow o-- edu.ktu.ds.lab2.gui.MainWindowMenu : mainWindowMenu
+  edu.ktu.ds.lab2.gui.MainWindow o-- edu.ktu.ds.lab2.gui.Panels : paneButtons
+  edu.ktu.ds.lab2.gui.MainWindow o-- edu.ktu.ds.lab2.gui.Panels : paneParam1
+  edu.ktu.ds.lab2.gui.MainWindowMenu .up.|> javafx.event.EventHandler
+  edu.ktu.ds.lab2.gui.MainWindowMenu -up-|> javafx.scene.control.MenuBar
+  edu.ktu.ds.lab2.gui.Panels -up-|> javafx.scene.layout.GridPane
+  edu.ktu.ds.lab2.utils.AvlSet .up.|> edu.ktu.ds.lab2.utils.SortedSet
+  edu.ktu.ds.lab2.utils.AvlSet -up-|> edu.ktu.ds.lab2.utils.BstSet
+  edu.ktu.ds.lab2.utils.BstSet .up.|> edu.ktu.ds.lab2.utils.SortedSet
+  edu.ktu.ds.lab2.utils.SortedSet .up.|> edu.ktu.ds.lab2.utils.Set
+  edu.ktu.ds.lab2.utils.BstSetIterative .up.|> edu.ktu.ds.lab2.utils.SortedSet
+  edu.ktu.ds.lab2.utils.BstSetIterative -up-|> edu.ktu.ds.lab2.utils.BstSet
+  edu.ktu.ds.lab2.utils.ParsableAvlSet .up.|> edu.ktu.ds.lab2.utils.ParsableSortedSet
+  edu.ktu.ds.lab2.utils.ParsableAvlSet -up-|> edu.ktu.ds.lab2.utils.AvlSet
+  edu.ktu.ds.lab2.utils.ParsableBstSet .up.|> edu.ktu.ds.lab2.utils.ParsableSortedSet
+  edu.ktu.ds.lab2.utils.ParsableSortedSet .up.|> edu.ktu.ds.lab2.utils.SortedSet
+  edu.ktu.ds.lab2.utils.ParsableBstSet -up-|> edu.ktu.ds.lab2.utils.BstSet
+
+@enduml
